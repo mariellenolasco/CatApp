@@ -44,7 +44,7 @@ namespace CatUI
                 }
             } while (repeat);
         }
-        public void ViewCats()
+        private void ViewCats()
         {
             List<Cat> cats = _repo.GetCats();
             foreach(Cat cat in cats)
@@ -52,7 +52,7 @@ namespace CatUI
                 Console.WriteLine(cat.Name);
             }
         }
-        public void AddCat()
+        private void AddCat()
         {
             Console.WriteLine("Enter Cat Details: ");
             string input = "";
@@ -67,7 +67,7 @@ namespace CatUI
             Console.WriteLine("New Cat added");
         }
 
-        public void FeedCat()
+        private void FeedCat()
         {
             int catId = CatPicker("Choose a cat to feed: ");   
             Console.WriteLine("Select Food Type: ");
@@ -82,9 +82,9 @@ namespace CatUI
             };
             _repo.AddMeal(newMeal, catId);
         }
-        public void MealHistory()
+        private void MealHistory()
         {
-            int catId = CatPicker("Pick a cat to get their meal history");
+            int catId = CatPicker("Pick a cat to get their meal history: ");
             List<Meal> mealHistory = _repo.GetMeals(catId);
             foreach(Meal meal in mealHistory)
             {
@@ -92,7 +92,7 @@ namespace CatUI
                 Console.WriteLine("Food Type: "+ meal.Food);
             }
         }
-        public int CatPicker(string prompt)
+        private int CatPicker(string prompt)
         {
             List<Cat> allCats = _repo.GetCats();
             Console.WriteLine(prompt);
