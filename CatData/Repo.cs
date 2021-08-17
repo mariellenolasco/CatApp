@@ -10,7 +10,7 @@ namespace CatData
             _context = context;
         }
         public List<Model.Cat> GetCats() {
-            return _context.Cats.Select(cat => new Model.Cat{
+            return (from cat in _context.Cats select new Model.Cat{
               Name = cat.Name,
               Id = cat.Id  
             }).ToList();
