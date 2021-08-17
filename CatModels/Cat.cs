@@ -4,5 +4,7 @@ namespace CatModels
     {
         public string Name {get; set;}
         public List<Meal> Meals{get; set;}
+
+        public int? Id {get; set;}
     }
 }
